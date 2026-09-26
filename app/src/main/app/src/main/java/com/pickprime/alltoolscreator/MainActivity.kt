@@ -1,44 +1,37 @@
 package com.pickprime.alltoolscreator
 
+import android.app.Activity
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
+import android.graphics.Color
+import android.view.Gravity
+import android.widget.LinearLayout
+import android.widget.TextView
 
-class MainActivity : ComponentActivity() {
+class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
-            AllToolsCreatorApp()
-        }
-    }
-}
+        val layout = LinearLayout(this)
+        layout.orientation = LinearLayout.VERTICAL
+        layout.gravity = Gravity.CENTER
+        layout.setBackgroundColor(Color.WHITE)
 
-@Composable
-fun AllToolsCreatorApp() {
-    MaterialTheme {
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
-        ) {
-            Text(
-                text = "All Tools Creator",
-                style = MaterialTheme.typography.headlineMedium
-            )
+        val title = TextView(this)
+        title.text = "All Tools Creator"
+        title.textSize = 28f
+        title.setTextColor(Color.BLACK)
+        title.gravity = Gravity.CENTER
 
-            Text(
-                text = "Your all-in-one tools app"
-            )
-        }
+        val subtitle = TextView(this)
+        subtitle.text = "\nYour all-in-one tools app"
+        subtitle.textSize = 16f
+        subtitle.setTextColor(Color.DKGRAY)
+        subtitle.gravity = Gravity.CENTER
+
+        layout.addView(title)
+        layout.addView(subtitle)
+
+        setContentView(layout)
     }
 }
