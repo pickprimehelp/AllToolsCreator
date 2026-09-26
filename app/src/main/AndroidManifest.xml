@@ -5,7 +5,7 @@
         android:allowBackup="true"
         android:label="All Tools Creator"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AllToolsCreator">
+        android:theme="@android:style/Theme.Material.Light.NoActionBar">
 
         <activity
             android:name=".MainActivity"
